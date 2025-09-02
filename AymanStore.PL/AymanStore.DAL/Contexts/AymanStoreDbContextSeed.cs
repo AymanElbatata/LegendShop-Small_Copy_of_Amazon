@@ -1,4 +1,4 @@
-﻿using AymanStore.DAL.BaseEntity;
+using AymanStore.DAL.BaseEntity;
 using AymanStore.DAL.Contexts;
 using AymanStore.DAL.Entities;
 //using Exam.DAL.Interfaces;
@@ -93,9 +93,9 @@ namespace AYMDating.DAL.Contexts
                         PhoneNumber = "201006983906"
                     };
 
-                    await userManager.CreateAsync(user1, "Aym@8511");
-                    await userManager.CreateAsync(user2, "Aym@8511");
-                    await userManager.CreateAsync(user3, "Aym@8511");
+                    await userManager.CreateAsync(user1, "Aym@9999");
+                    await userManager.CreateAsync(user2, "Aym@9999");
+                    await userManager.CreateAsync(user3, "Aym@9999");
 
                     await userManager.AddToRoleAsync(user1, "Admin");
                     await userManager.AddToRoleAsync(user2, "User");
