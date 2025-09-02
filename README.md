@@ -19,7 +19,7 @@ LegendShop is designed to showcase a scalable e-commerce solution with features 
 
 It is not a complete commercial platform yet, but serves as a strong base for further development.
 
-This project is open-source and free.
+This project is free.
 
 📚 Fresh graduates and students can learn from its codebase.
 
