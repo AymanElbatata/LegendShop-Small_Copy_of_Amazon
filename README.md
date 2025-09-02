@@ -41,7 +41,7 @@ Hosting: Azure (via runasp.net)
 
 Clone the repository
 
-git clone https://github.com/yourusername/LegendShop.git
+git clone https://github.com/AymanElbatata/LegendShop-Small_Copy_of_Amazon.git
 
 
 Open in Visual Studio 2022 or higher.
