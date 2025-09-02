@@ -29,13 +29,13 @@ This project is free.
 
 🔧 Tech Stack
 
-Backend: ASP.NET Core MVC (.NET 6), C#
+Backend: ASP.NET Core MVC (.NET 9), C#
 
 Database: Microsoft SQL Server
 
 Frontend: HTML5, CSS3, Bootstrap, JavaScript
 
-Hosting: Azure (via runasp.net)
+Hosting: via monsterasp.net
 
 🚀 Getting Started
 
