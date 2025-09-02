@@ -1,0 +1,61 @@
+﻿@model IEnumerable<AymanStore.PL.Models.ProductTBL_VM>
+
+@{
+    ViewData["Title"] = "Products By SubCategoryId";
+}
+
+@if (Model.Count() > 0)
+{
+    <div class="container">
+        <div class="breadcrumb">
+            <span>Home > @Model.FirstOrDefault().SubCategoryTBL.CategoryTBL.Name > @Model.FirstOrDefault().SubCategoryTBL.Name</span>
+        </div>
+
+        <h3>Found @Model.Count() Product</h3>
+
+        <div class="products-grid">
+            <!-- Product 1 -->
+            @foreach (var item in Model)
+            {
+
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <a asp-controller="Home" asp-action="ProductDetail" asp-route-ProductId="@item.ID">
+                        <div class="product-image">
+                            <img src="https://marvelafrica.co.ke/wp-content/uploads/product-images//TP-Link-Archer-MR400-Router.jpg" alt="Camera">
+                        </div>
+                    </a>
+                    <a href="#" class="product-title">@item.Name</a>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>1,562</span>
+                    </div>
+                    <div class="product-price">
+                        $@item.SellingPrice
+                    </div>
+                    <div class="product-shipping">
+                        FREE delivery <b>Tomorrow</b>
+                    </div>
+                    <div class="prime-badge">
+                        <i class="fas fa-check-circle"></i> Prime
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+}
+
+else
+{
+    <div class="container">
+        <div class="breadcrumb">
+            <span>Home > @ViewBag.CategoryName > @ViewBag.SubCategoryName</span>
+        </div>
+             <h3 class="mt-3">Found No Products</h3>
+    </div>
+}

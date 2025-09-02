@@ -1,0 +1,17 @@
+[
+  {
+    "ShippingCompanyTBLId": 1,
+    "CountryTBLSendToId": 50,
+    "Cost": 10
+  },
+  {
+    "ShippingCompanyTBLId": 1,
+    "CountryTBLSendToId": 149,
+    "Cost": 20
+  },
+  {
+    "ShippingCompanyTBLId": 1,
+    "CountryTBLSendToId": 181,
+    "Cost": 25
+  }
+]

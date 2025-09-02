@@ -1,0 +1,26 @@
+[
+  {
+    "Name": "EGYPOST",
+    "CountryTBLId": 50
+  },
+  {
+    "Name": "DHL",
+    "CountryTBLId": 50
+  },
+  {
+    "Name": "FEDEX",
+    "CountryTBLId": 50
+  },
+  {
+    "Name": "Bosta",
+    "CountryTBLId": 50
+  },
+  {
+    "Name": "KSA",
+    "CountryTBLId": 149
+  },
+  {
+    "Name": "Etihad",
+    "CountryTBLId": 181
+  }
+]

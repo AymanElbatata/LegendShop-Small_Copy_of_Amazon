@@ -1,0 +1,193 @@
+﻿@model AymanStore.PL.Models.CheckOut_VM
+
+@{
+    ViewData["Title"] = "CheckOut";
+}
+<!-- Custom CSS -->
+<style>
+
+    .cart-empty-alert {
+        background-color: #fff; /* clean white background */
+        color: #111; /* dark, high-contrast text */
+        padding: 20px; /* ample spacing */
+        border: 1px solid #ddd; /* subtle light-gray border */
+        text-align: center; /* centered message */
+        font-family: Arial, sans-serif; /* clean and readable font */
+    }
+
+        .cart-empty-alert p {
+            margin: 0;
+            font-size: 16px;
+        }
+
+    .text-danger.small {
+        font-size: 13px;
+        color: #c40000; /* Amazon red */
+        margin-top: 3px;
+        display: block;
+    }
+
+    /* Validation Summary */
+    .validation-summary {
+        color: #c40000;
+        background-color: #ffdfdf;
+        padding: 10px;
+        border-radius: 3px;
+        margin-bottom: 15px;
+        font-size: 13px;
+    }
+
+        .validation-summary ul {
+            margin-left: 15px;
+        }
+
+</style>
+
+<div class="container">
+    <div class="breadcrumb">
+        <span>User > CheckOut</span>
+    </div>
+</div>
+
+
+
+<div class="container my-4">
+
+    @if (Model.OrderTBL_VM == null)
+    {
+        <div class="cart-empty-alert">
+            <p>Your Order is empty.</p>
+        </div>
+    }
+    else
+    {
+        <form id="checkoutForm" asp-action="CheckOutOrder" asp-controller="User" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+            <!-- Country -->
+            <div class="form-group mb-3">
+                <label for="CountryTBLId">Country</label>
+                <select asp-for="@Model.OrderTBL_VM.CountryTBLId" class="form-control"
+                        asp-items="@(new SelectList(Model.CountryTBL_VM, "ID", "Name"))">
+                    <option value="">-- Select Country --</option>
+                </select>
+                <span asp-validation-for="@Model.OrderTBL_VM.CountryTBLId" class="text-danger"></span>
+            </div>
+
+@*             <div class="form-group mb-3">
+                <label for="CountryTBLId">Country</label>
+                <select asp-for="@Model.OrderTBL_VM.CountryTBLId" class="form-control" disabled>
+                    <option value="@Model.OrderTBL_VM.CountryTBLId" selected>
+                        @Model.CountryTBL_VM.FirstOrDefault(c => c.ID == Model.OrderTBL_VM.CountryTBLId)?.Name
+                    </option>
+                </select>
+                <span asp-validation-for="@Model.OrderTBL_VM.CountryTBLId" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="@Model.OrderTBL_VM.CountryTBLId" />
+ *@
+
+            <!-- Address -->
+            <div class="form-group mb-3">
+                <label for="Address">Address</label>
+                <textarea asp-for="@Model.OrderTBL_VM.Address" class="form-control" rows="3"></textarea>
+                <span asp-validation-for="@Model.OrderTBL_VM.Address" class="text-danger"></span>
+            </div>
+
+            <!-- Phones -->
+            <div class="form-group mb-3">
+                <label for="Phones">Phone Numbers</label>
+                <input asp-for="@Model.OrderTBL_VM.Phones" class="form-control" placeholder="+123456789 / +987654321" />
+                <span asp-validation-for="@Model.OrderTBL_VM.Phones" class="text-danger"></span>
+            </div>
+
+            <!-- Shipping Service -->
+            <div class="form-group mb-3">
+                <label for="ShippingServiceTBLId">Shipping Service</label>
+                <select asp-for="@Model.OrderTBL_VM.ShippingServiceTBLId" class="form-control"
+                        asp-items="@(new SelectList(Model.ShippingServiceTBL_VM, "ID", "Name"))">
+                    <option value="">-- Select Service --</option>
+                </select>
+                <span asp-validation-for="@Model.OrderTBL_VM.ShippingServiceTBLId" class="text-danger"></span>
+            </div>
+
+            <!-- Place Order -->
+            <div class="checkout-section">
+                <h4 class="section-title">Place Order</h4>
+                <div class="section-body">
+                    <p><strong>Order Code:</strong> @Model.OrderTBL_VM.HashCode</p>
+                    <button type="submit" class="btn btn-warning btn-lg w-100 mt-3">Place your order</button>
+                </div>
+            </div>
+        </form>
+    }
+</div>
+
+
+<script>
+    document.getElementById("checkoutForm").addEventListener("submit", function (e) {
+        let isValid = true;
+
+        // Country
+        let country = document.getElementById("OrderTBL_VM_CountryTBLId");
+        if (!country.value) {
+            isValid = false;
+            showError(country, "Please select a country");
+        } else {
+            clearError(country);
+        }
+
+        // Address
+        let address = document.getElementById("OrderTBL_VM_Address");
+        if (!address.value.trim()) {
+            isValid = false;
+            showError(address, "Address is required");
+        } else {
+            clearError(address);
+        }
+
+        // Phones
+    let phone = document.getElementById("OrderTBL_VM_Phones");
+
+        // Regex explanation:
+        // ^\+?\d{6,15}       => starts with optional +, then 6-15 digits
+        // (\s*[\/\-]\s*\+?\d{6,15})* => allow multiple numbers separated by / or -, with optional spaces
+        // $                   => end of string
+        let phoneRegex = /^\+?\d{6,15}(\s*[\/\-]\s*\+?\d{6,15})*$/;
+
+        if (!phone.value.trim() || !phoneRegex.test(phone.value.trim())) {
+            isValid = false;
+            showError(phone, "Enter a valid phone number (+123456789 / +987654321 or +123456789-+987654321)");
+        } else {
+            clearError(phone);
+        }
+
+        // Shipping Service
+        let service = document.getElementById("OrderTBL_VM_ShippingServiceTBLId");
+        if (!service.value) {
+            isValid = false;
+            showError(service, "Please select a shipping service");
+        } else {
+            clearError(service);
+        }
+
+        if (!isValid) {
+            e.preventDefault(); // stop submit
+        }
+    });
+
+    function showError(input, message) {
+        let span = input.parentElement.querySelector(".text-danger");
+        if (span) {
+            span.innerText = message;
+        }
+        input.classList.add("is-invalid");
+    }
+
+    function clearError(input) {
+        let span = input.parentElement.querySelector(".text-danger");
+        if (span) {
+            span.innerText = "";
+        }
+        input.classList.remove("is-invalid");
+    }
+</script>

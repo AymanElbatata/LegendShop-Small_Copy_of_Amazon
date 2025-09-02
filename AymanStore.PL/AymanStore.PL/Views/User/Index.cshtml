@@ -1,0 +1,13 @@
+﻿@using System.Security.Claims
+@{
+    ViewData["Title"] = "Index";
+    var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+}
+
+<div class="container">
+    <div class="breadcrumb">
+        <span>User > Index</span>
+    </div>
+</div>
+
+<h3>UserId = @userId</h3>

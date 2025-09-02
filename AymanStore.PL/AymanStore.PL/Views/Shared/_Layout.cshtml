@@ -1,0 +1,198 @@
+﻿@using AymanStore.BLL.Interfaces
+@using Microsoft.AspNetCore.Identity
+
+@inject IUnitOfWork UnitOfWork;
+
+@{
+    var categories = UnitOfWork.CategoryTBLRepository.GetAllCustomized(
+filter: a => a.IsDeleted == false);
+
+    var Subcategories = UnitOfWork.SubCategoryTBLRepository.GetAllCustomized(
+filter: a => a.IsDeleted == false);
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Legend Shop</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/AymanStore.PL.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+</head>
+<body>
+    <header class="header">
+        <a asp-controller="Home" asp-action="Index" class="header-logo text-white">
+            <i class="fas fa-shopping-bag"></i> Legend Shop
+        </a>
+
+        <div class="header-search">
+            <select id="CategorySearchMenu">
+                <option value="0">All</option>
+                @{
+                    foreach (var item in categories)
+                    {
+                       <option value="@item.ID">@item.Name</option>
+                    }
+                }
+            </select>
+
+
+            <form asp-controller="Home" asp-action="Search" method="get">
+                <input type="text" id="MainSearchWord" name="MainSearchWord" placeholder="Search products..." required />
+                <input type="hidden" id="CategorySearchId" name="CategorySearchId" />
+                <button type="submit" id="CategorySearchMenuBTN"><i class="fas fa-search"></i></button>
+            </form>
+
+     </div>
+
+        <div class="header-nav">
+            @if (UnitOfWork.SignInManager.IsSignedIn(User))
+            {
+                <div class="nav-item dropdown">
+                    <span>Hello, @User.Identity?.Name</span>
+                    <ul class="submenu">
+                        @if (User.IsInRole("Admin"))
+                        {
+                        <li>
+                            <a asp-controller="Admin" asp-action="Index">
+                                Account
+                            </a>
+                        </li>
+                        }
+                        else if (User.IsInRole("Supplier"))
+                        {
+                        <li>
+                            <a asp-controller="Supplier" asp-action="Index">
+                                    Account
+                            </a>
+                        </li>
+                        }
+                        else
+                        {
+                            <li>
+                                <a asp-controller="User" asp-action="Index">
+                                    Account
+                                </a>
+                            </li>
+                        }
+                        <li>
+                            <a asp-controller="Account" asp-action="Logout">
+                                Sign Out
+                            </a>
+                        </li>
+                    </ul>
+                    <b>Account & Lists</b>
+                </div>
+            }
+            else
+            {
+                <div class="nav-item">
+                    <span>
+                        <a asp-controller="Account" asp-action="Login" class="text-white text-decoration-none">Hello, sign in</a>
+                    </span>
+                    <b>Account & Lists</b>
+                </div>
+            }
+
+            <div class="nav-item">
+                <span>Returns</span>
+                <b><a asp-controller="User" asp-action="Orders" class="text-decoration-none text-white">& Orders</a></b>
+            </div>
+
+            <div class="nav-item nav-cart">
+                <a asp-controller="User" asp-action="ShoppingCart" class="text-decoration-none text-white"><i class="fas fa-shopping-cart"></i></a>
+                <b><a asp-controller="User" asp-action="ShoppingCart" class="text-decoration-none text-white">Cart</a> </b>
+            </div>
+        </div>
+    </header>
+   
+
+    <div class="container">
+
+        <div class="secondary-nav">
+            <a asp-controller="Home" asp-action="Index">
+                <i class="fas fa-bars"></i> All
+            </a>
+
+            @foreach (var category in categories)
+            {
+                <div class="dropdown">
+                    <a asp-controller="Home" asp-action="ProductsByCategoryId" asp-route-CategoryId="@category.ID">
+                        @category.Name
+                    </a>
+
+                    @if (Subcategories != null && Subcategories.Any())
+                    {
+                        <ul class="submenu">
+                            @foreach (var sub in Subcategories.Where(a=>a.CategoryTBLId == category.ID))
+                            {
+                                <li>
+                                    <a asp-controller="Home" asp-action="ProductsBySubCategoryId" asp-route-SubCategoryId="@sub.ID">
+                                        @sub.Name
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    }
+                </div>
+            }
+        </div>
+            @RenderBody()
+    </div>
+
+    <!-- Footer -->
+    <div class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        Back to top
+    </div>
+
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>About Us</h3>
+                    <p>Legend Shop is a premium online store offering the latest trends in fashion, electronics, and home goods.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Products</a></li>
+                        <li><a href="#">Categories</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Abo-Zahra St, Tanta, Egypt</p>
+                    <p><i class="fas fa-phone"></i> +2 0128 487 8483</p>
+                    <p><i class="fas fa-envelope"></i> info@legendshop.com</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Legend Shop. All rights reserved. <a href="https://www.linkedin.com/in/ayman-elbatata/"></a>Ayman Elbatata</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/GetUserCountry.js" asp-append-version="true"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
