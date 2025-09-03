@@ -56,7 +56,7 @@ Launch the app and explore 🚀
 
 👨‍💻 About the Author
 
-Ayman Elbatata
+Ayman Fathy Elbatata
 
 Senior Software Developer
 
