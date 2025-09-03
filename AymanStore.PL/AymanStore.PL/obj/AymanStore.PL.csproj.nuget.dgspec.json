@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ayman\\Desktop\\AymanStore.PL\\AymanStore.PL\\AymanStore.PL.csproj": {}
+    "C:\\Users\\ayman\\Documents\\GitHub\\LegendShop-Small_Copy_of_Amazon\\AymanStore.PL\\AymanStore.PL\\AymanStore.PL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ayman\\Desktop\\AymanStore.PL\\AymanStore.BLL\\AymanStore.BLL.csproj": {
+    "C:\\Users\\ayman\\Documents\\GitHub\\LegendShop-Small_Copy_of_Amazon\\AymanStore.PL\\AymanStore.BLL\\AymanStore.BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ayman\\Desktop\\AymanStore.PL\\AymanStore.BLL\\AymanStore.BLL.csproj",
+        "projectUniqueName": "C:\\Users\\ayman\\Documents\\GitHub\\LegendShop-Small_Copy_of_Amazon\\AymanStore.PL\\AymanStore.BLL\\AymanStore.BLL.csproj",
         "projectName": "AymanStore.BLL",
-        "projectPath": "C:\\Users\\ayman\\Desktop\\AymanStore.PL\\AymanStore.BLL\\AymanStore.BLL.csproj",
+        "projectPath": "C:\\Users\\ayman\\Documents\\GitHub\\LegendShop-Small_Copy_of_Amazon\\AymanStore.PL\\AymanStore.BLL\\AymanStore.BLL.csproj",
         "packagesPath": "C:\\Users\\ayman\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ayman\\Desktop\\AymanStore.PL\\AymanStore.BLL\\obj\\",
+        "outputPath": "C:\\Users\\ayman\\Documents\\GitHub\\LegendShop-Small_Copy_of_Amazon\\AymanStore.PL\\AymanStore.BLL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -32,8 +32,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\Users\\ayman\\Desktop\\AymanStore.PL\\AymanStore.DAL\\AymanStore.DAL.csproj": {
-                "projectPath": "C:\\Users\\ayman\\Desktop\\AymanStore.PL\\AymanStore.DAL\\AymanStore.DAL.csproj"
+              "C:\\Users\\ayman\\Documents\\GitHub\\LegendShop-Small_Copy_of_Amazon\\AymanStore.PL\\AymanStore.DAL\\AymanStore.DAL.csproj": {
+                "projectPath": "C:\\Users\\ayman\\Documents\\GitHub\\LegendShop-Small_Copy_of_Amazon\\AymanStore.PL\\AymanStore.DAL\\AymanStore.DAL.csproj"
               }
             }
           }
@@ -91,14 +91,14 @@
         }
       }
     },
-    "C:\\Users\\ayman\\Desktop\\AymanStore.PL\\AymanStore.DAL\\AymanStore.DAL.csproj": {
+    "C:\\Users\\ayman\\Documents\\GitHub\\LegendShop-Small_Copy_of_Amazon\\AymanStore.PL\\AymanStore.DAL\\AymanStore.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ayman\\Desktop\\AymanStore.PL\\AymanStore.DAL\\AymanStore.DAL.csproj",
+        "projectUniqueName": "C:\\Users\\ayman\\Documents\\GitHub\\LegendShop-Small_Copy_of_Amazon\\AymanStore.PL\\AymanStore.DAL\\AymanStore.DAL.csproj",
         "projectName": "AymanStore.DAL",
-        "projectPath": "C:\\Users\\ayman\\Desktop\\AymanStore.PL\\AymanStore.DAL\\AymanStore.DAL.csproj",
+        "projectPath": "C:\\Users\\ayman\\Documents\\GitHub\\LegendShop-Small_Copy_of_Amazon\\AymanStore.PL\\AymanStore.DAL\\AymanStore.DAL.csproj",
         "packagesPath": "C:\\Users\\ayman\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ayman\\Desktop\\AymanStore.PL\\AymanStore.DAL\\obj\\",
+        "outputPath": "C:\\Users\\ayman\\Documents\\GitHub\\LegendShop-Small_Copy_of_Amazon\\AymanStore.PL\\AymanStore.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -176,14 +176,14 @@
         }
       }
     },
-    "C:\\Users\\ayman\\Desktop\\AymanStore.PL\\AymanStore.PL\\AymanStore.PL.csproj": {
+    "C:\\Users\\ayman\\Documents\\GitHub\\LegendShop-Small_Copy_of_Amazon\\AymanStore.PL\\AymanStore.PL\\AymanStore.PL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ayman\\Desktop\\AymanStore.PL\\AymanStore.PL\\AymanStore.PL.csproj",
+        "projectUniqueName": "C:\\Users\\ayman\\Documents\\GitHub\\LegendShop-Small_Copy_of_Amazon\\AymanStore.PL\\AymanStore.PL\\AymanStore.PL.csproj",
         "projectName": "AymanStore.PL",
-        "projectPath": "C:\\Users\\ayman\\Desktop\\AymanStore.PL\\AymanStore.PL\\AymanStore.PL.csproj",
+        "projectPath": "C:\\Users\\ayman\\Documents\\GitHub\\LegendShop-Small_Copy_of_Amazon\\AymanStore.PL\\AymanStore.PL\\AymanStore.PL.csproj",
         "packagesPath": "C:\\Users\\ayman\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ayman\\Desktop\\AymanStore.PL\\AymanStore.PL\\obj\\",
+        "outputPath": "C:\\Users\\ayman\\Documents\\GitHub\\LegendShop-Small_Copy_of_Amazon\\AymanStore.PL\\AymanStore.PL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -204,8 +204,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\Users\\ayman\\Desktop\\AymanStore.PL\\AymanStore.BLL\\AymanStore.BLL.csproj": {
-                "projectPath": "C:\\Users\\ayman\\Desktop\\AymanStore.PL\\AymanStore.BLL\\AymanStore.BLL.csproj"
+              "C:\\Users\\ayman\\Documents\\GitHub\\LegendShop-Small_Copy_of_Amazon\\AymanStore.PL\\AymanStore.BLL\\AymanStore.BLL.csproj": {
+                "projectPath": "C:\\Users\\ayman\\Documents\\GitHub\\LegendShop-Small_Copy_of_Amazon\\AymanStore.PL\\AymanStore.BLL\\AymanStore.BLL.csproj"
               }
             }
           }

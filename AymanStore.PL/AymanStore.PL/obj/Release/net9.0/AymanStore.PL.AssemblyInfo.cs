@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AymanStore.PL")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+62c52b63ce8e20c0df70e3210e4e3289f5e306c6")]
 [assembly: System.Reflection.AssemblyProductAttribute("AymanStore.PL")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AymanStore.PL")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XhZZYdAVnI8=",
+  "dgSpecHash": "E5jy2xVMbGw=",
   "success": true,
-  "projectFilePath": "C:\\Users\\ayman\\Desktop\\AymanStore.PL\\AymanStore.PL\\AymanStore.PL.csproj",
+  "projectFilePath": "C:\\Users\\ayman\\Documents\\GitHub\\LegendShop-Small_Copy_of_Amazon\\AymanStore.PL\\AymanStore.PL\\AymanStore.PL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ayman\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\ayman\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

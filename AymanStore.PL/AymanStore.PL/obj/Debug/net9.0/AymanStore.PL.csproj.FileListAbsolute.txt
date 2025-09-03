@@ -707,3 +707,16 @@ C:\Users\ayman\Desktop\AymanStore.PL\AymanStore.PL\obj\Debug\net9.0\refint\Ayman
 C:\Users\ayman\Desktop\AymanStore.PL\AymanStore.PL\obj\Debug\net9.0\AymanStore.PL.pdb
 C:\Users\ayman\Desktop\AymanStore.PL\AymanStore.PL\obj\Debug\net9.0\AymanStore.PL.genruntimeconfig.cache
 C:\Users\ayman\Desktop\AymanStore.PL\AymanStore.PL\obj\Debug\net9.0\ref\AymanStore.PL.dll
+C:\Users\ayman\Documents\GitHub\LegendShop-Small_Copy_of_Amazon\AymanStore.PL\AymanStore.PL\obj\Debug\net9.0\AymanStore.PL.csproj.AssemblyReference.cache
+C:\Users\ayman\Documents\GitHub\LegendShop-Small_Copy_of_Amazon\AymanStore.PL\AymanStore.PL\obj\Debug\net9.0\rpswa.dswa.cache.json
+C:\Users\ayman\Documents\GitHub\LegendShop-Small_Copy_of_Amazon\AymanStore.PL\AymanStore.PL\obj\Debug\net9.0\AymanStore.PL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ayman\Documents\GitHub\LegendShop-Small_Copy_of_Amazon\AymanStore.PL\AymanStore.PL\obj\Debug\net9.0\AymanStore.PL.AssemblyInfoInputs.cache
+C:\Users\ayman\Documents\GitHub\LegendShop-Small_Copy_of_Amazon\AymanStore.PL\AymanStore.PL\obj\Debug\net9.0\AymanStore.PL.AssemblyInfo.cs
+C:\Users\ayman\Documents\GitHub\LegendShop-Small_Copy_of_Amazon\AymanStore.PL\AymanStore.PL\obj\Debug\net9.0\AymanStore.PL.csproj.CoreCompileInputs.cache
+C:\Users\ayman\Documents\GitHub\LegendShop-Small_Copy_of_Amazon\AymanStore.PL\AymanStore.PL\obj\Debug\net9.0\AymanStore.PL.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\ayman\Documents\GitHub\LegendShop-Small_Copy_of_Amazon\AymanStore.PL\AymanStore.PL\obj\Debug\net9.0\AymanStore.PL.RazorAssemblyInfo.cache
+C:\Users\ayman\Documents\GitHub\LegendShop-Small_Copy_of_Amazon\AymanStore.PL\AymanStore.PL\obj\Debug\net9.0\AymanStore.PL.RazorAssemblyInfo.cs
+C:\Users\ayman\Documents\GitHub\LegendShop-Small_Copy_of_Amazon\AymanStore.PL\AymanStore.PL\obj\Debug\net9.0\AymanStore.PL.sourcelink.json
+C:\Users\ayman\Documents\GitHub\LegendShop-Small_Copy_of_Amazon\AymanStore.PL\AymanStore.PL\obj\Debug\net9.0\AymanStore.PL.dll
+C:\Users\ayman\Documents\GitHub\LegendShop-Small_Copy_of_Amazon\AymanStore.PL\AymanStore.PL\obj\Debug\net9.0\refint\AymanStore.PL.dll
+C:\Users\ayman\Documents\GitHub\LegendShop-Small_Copy_of_Amazon\AymanStore.PL\AymanStore.PL\obj\Debug\net9.0\AymanStore.PL.pdb

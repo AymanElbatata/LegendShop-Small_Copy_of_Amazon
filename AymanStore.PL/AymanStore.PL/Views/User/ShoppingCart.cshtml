@@ -116,7 +116,9 @@
                     <div class="cart-item row border-bottom py-3 align-items-center">
                         <!-- Product Image -->
                         <div class="col-3 col-md-2">
-                            <img src="@item.ProductTBL.Image" class="img-fluid rounded" alt="@item.ProductTBL.Name" />
+                            <a asp-controller="Home" asp-action="ProductDetail" asp-route-ProductId="@item.ProductTBLId">
+                                <img src="@item.ProductTBL.Image" class="img-fluid rounded" alt="@item.ProductTBL.Name" />
+                            </a>
                         </div>
 
                         <!-- Product Details -->

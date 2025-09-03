@@ -68,6 +68,7 @@
                 <thead class="table-light">
                     <tr>
                         <th>Product</th>
+                        <th>Barcode</th>
                         <th>Quantity</th>
                         <th>Price</th>
                         <th>Shipping</th>
@@ -80,7 +81,9 @@
                         <tr>
                             <td>
                                 <div class="d-flex align-items-center">
-                                    <img src="@item.ProductTBL.Image" alt="@item.ProductTBL.Name" class="img-thumbnail me-3" style="width:80px;height:80px;object-fit:cover;" />
+                                    <a asp-controller="Home" asp-action="ProductDetail" asp-route-ProductId="@item.ProductTBLId">
+                                        <img src="@item.ProductTBL.Image" alt="@item.ProductTBL.Name" class="img-thumbnail me-3" style="width:80px;height:80px;object-fit:cover;" />
+                                    </a>
                                     <div>
                                         <div class="fw-bold">@item.ProductTBL.Name</div>
                                         <div class="text-muted small">@item.ProductTBL.Brand</div>
@@ -88,6 +91,7 @@
                                 </div>
                             </td>
                             <td>@item.Quantity</td>
+                            <td>@item.ProductTBL.Barcode</td>
                             <td>$@item.Price</td>
                             <td>$@(item.Quantity * item.ShippingCost)</td>
                             <td>$@(item.Quantity * item.Price + item.Quantity * item.ShippingCost)</td>

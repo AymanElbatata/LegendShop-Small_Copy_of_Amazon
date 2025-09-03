@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ayman\\Desktop\\AymanStore.PL\\AymanStore.DAL\\AymanStore.DAL.csproj": {}
+    "C:\\Users\\ayman\\Documents\\GitHub\\LegendShop-Small_Copy_of_Amazon\\AymanStore.PL\\AymanStore.DAL\\AymanStore.DAL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ayman\\Desktop\\AymanStore.PL\\AymanStore.DAL\\AymanStore.DAL.csproj": {
+    "C:\\Users\\ayman\\Documents\\GitHub\\LegendShop-Small_Copy_of_Amazon\\AymanStore.PL\\AymanStore.DAL\\AymanStore.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ayman\\Desktop\\AymanStore.PL\\AymanStore.DAL\\AymanStore.DAL.csproj",
+        "projectUniqueName": "C:\\Users\\ayman\\Documents\\GitHub\\LegendShop-Small_Copy_of_Amazon\\AymanStore.PL\\AymanStore.DAL\\AymanStore.DAL.csproj",
         "projectName": "AymanStore.DAL",
-        "projectPath": "C:\\Users\\ayman\\Desktop\\AymanStore.PL\\AymanStore.DAL\\AymanStore.DAL.csproj",
+        "projectPath": "C:\\Users\\ayman\\Documents\\GitHub\\LegendShop-Small_Copy_of_Amazon\\AymanStore.PL\\AymanStore.DAL\\AymanStore.DAL.csproj",
         "packagesPath": "C:\\Users\\ayman\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ayman\\Desktop\\AymanStore.PL\\AymanStore.DAL\\obj\\",
+        "outputPath": "C:\\Users\\ayman\\Documents\\GitHub\\LegendShop-Small_Copy_of_Amazon\\AymanStore.PL\\AymanStore.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

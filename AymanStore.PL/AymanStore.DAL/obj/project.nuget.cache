@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DRsAFbkJ5lw=",
+  "dgSpecHash": "KOmwujofWLQ=",
   "success": true,
-  "projectFilePath": "C:\\Users\\ayman\\Desktop\\AymanStore.PL\\AymanStore.DAL\\AymanStore.DAL.csproj",
+  "projectFilePath": "C:\\Users\\ayman\\Documents\\GitHub\\LegendShop-Small_Copy_of_Amazon\\AymanStore.PL\\AymanStore.DAL\\AymanStore.DAL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ayman\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\ayman\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

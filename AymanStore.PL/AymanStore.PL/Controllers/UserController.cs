@@ -35,6 +35,7 @@ namespace AymanStore.PL.Controllers
             return View();
         }
 
+        #region Orders & Order Details
         public IActionResult Orders()
         {
             string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -74,6 +75,7 @@ namespace AymanStore.PL.Controllers
             }
             return View(data);
         }
+        #endregion
 
         #region ShoppingCart + Add-Update-Delete
         public IActionResult ShoppingCart()
@@ -209,6 +211,7 @@ namespace AymanStore.PL.Controllers
                     items.Add(new ConfirmationOrder_VM
                     {
                         ItemName = item.ProductTBL.Name,
+                        Barcode = item.ProductTBL.Barcode,
                         Quantity = item.Quantity,
                         Price = item.Price * item.Quantity,
                         Shipping = item.Quantity * item.ShippingCost
@@ -403,6 +406,7 @@ namespace AymanStore.PL.Controllers
                 sb.Append($@"
             <tr>
                 <td>{item.ItemName}</td>
+                <td>{item.Barcode}</td>
                 <td>{item.Quantity}</td>
                 <td>${item.Price:F2}</td>
                 <td>${item.Shipping:F2}</td>
