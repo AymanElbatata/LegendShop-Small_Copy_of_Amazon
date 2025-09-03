@@ -45,12 +45,12 @@ namespace AymanStore.PL.Controllers
                         filter: a => a.IsDeleted == false));
 
             var Product = unitOfWork.ProductTBLRepository.GetAllCustomized(
-            filter: a => a.IsDeleted == false, orderBy: q => q.OrderByDescending(p => p.CreationDate), includes: new Expression<Func<ProductTBL, object>>[]
+            filter: a => a.IsDeleted == false, includes: new Expression<Func<ProductTBL, object>>[]
                     {
                                              p => p.SubCategoryTBL,
                                              p => p.SubCategoryTBL.CategoryTBL
                     }).Take(6);
-            data.ProductTBL_VM = Mapper.Map<List<ProductTBL_VM>>(Product);
+            data.ProductTBL_VM = Mapper.Map<List<ProductTBL_VM>>(Product.OrderByDescending(a=>a.CreationDate));
 
             return View(data);
         }
