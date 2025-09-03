@@ -38,9 +38,36 @@ namespace AymanStore.BLL.Repositories
         public IEnumerable<T> GetAll()
             => _context.Set<T>().ToList();
 
-        public IEnumerable<T> GetAllCustomized(
+        //public IEnumerable<T> GetAllCustomized(
+        //Expression<Func<T, bool>> filter = null,
+        //Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
+        //params Expression<Func<T, object>>[] includes)
+        //{
+        //    IQueryable<T> query = _dbSet;
+
+        //    if (filter != null)
+        //    {
+        //        query = query.Where(filter);
+        //    }
+
+        //    // Include related entities
+        //    if (includes != null)
+        //    {
+        //        query = includes.Aggregate(query, (current, include) => current.Include(include));
+        //    }
+
+        //    if (orderBy != null)
+        //    {
+        //        return orderBy(query).ToList();
+        //    }
+        //    else
+        //    {
+        //        return query.ToList();
+        //    }
+        //}
+
+            public IEnumerable<T> GetAllCustomized(
         Expression<Func<T, bool>> filter = null,
-        Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
         params Expression<Func<T, object>>[] includes)
         {
             IQueryable<T> query = _dbSet;
@@ -56,14 +83,7 @@ namespace AymanStore.BLL.Repositories
                 query = includes.Aggregate(query, (current, include) => current.Include(include));
             }
 
-            if (orderBy != null)
-            {
-                return orderBy(query).ToList();
-            }
-            else
-            {
-                return query.ToList();
-            }
+            return query.ToList();
         }
 
 

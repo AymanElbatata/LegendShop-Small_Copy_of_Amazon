@@ -60,24 +60,24 @@ namespace AymanStore.PL.Controllers
             if (!string.IsNullOrEmpty(MainSearchWord) && CategorySearchId > 0)
             {
                 var Product = unitOfWork.ProductTBLRepository.GetAllCustomized(
-                    filter: a => a.IsDeleted == false && a.SubCategoryTBL.CategoryTBL.ID == CategorySearchId && (a.Name.Contains(MainSearchWord) || a.Description.Contains(MainSearchWord)), orderBy: q => q.OrderByDescending(p => p.CreationDate),
+                    filter: a => a.IsDeleted == false && a.SubCategoryTBL.CategoryTBL.ID == CategorySearchId && (a.Name.Contains(MainSearchWord) || a.Description.Contains(MainSearchWord)),
                     includes: new Expression<Func<ProductTBL, object>>[]
                     {
                                              p => p.SubCategoryTBL,
                                              p => p.ManufacturerTBL
                     });
-                return View(Mapper.Map<List<ProductTBL_VM>>(Product));
+                return View(Mapper.Map<List<ProductTBL_VM>>(Product.OrderByDescending(p => p.CreationDate)));
             }
             else if (!string.IsNullOrEmpty(MainSearchWord) && CategorySearchId == 0)
             {
                 var Product = unitOfWork.ProductTBLRepository.GetAllCustomized(
-                    filter: a => a.IsDeleted == false && (a.Name.Contains(MainSearchWord) || a.Description.Contains(MainSearchWord) || a.Barcode.Contains(MainSearchWord)), orderBy: q => q.OrderByDescending(p => p.CreationDate),
+                    filter: a => a.IsDeleted == false && (a.Name.Contains(MainSearchWord) || a.Description.Contains(MainSearchWord) || a.Barcode.Contains(MainSearchWord)),
                     includes: new Expression<Func<ProductTBL, object>>[]
                     {
                                              p => p.SubCategoryTBL,
                                              p => p.ManufacturerTBL
                     });
-                return View(Mapper.Map<List<ProductTBL_VM>>(Product));
+                return View(Mapper.Map<List<ProductTBL_VM>>(Product.OrderByDescending(p => p.CreationDate)));
 
             }
             return View(new List<ProductTBL_VM>());
@@ -103,8 +103,8 @@ namespace AymanStore.PL.Controllers
                     data.ProductTBL_VM = Mapper.Map<ProductTBL_VM>(Product);
 
                     var productPhotos = unitOfWork.ProductPhotoTBLRepository.GetAllCustomized(
-                             filter: a => a.IsDeleted == false && a.ProductTBLId == ProductId, orderBy: q => q.OrderByDescending(p => p.CreationDate));
-                    data.ProductPhotoTBL_VM = Mapper.Map<List<ProductPhotoTBL_VM>>(productPhotos);
+                             filter: a => a.IsDeleted == false && a.ProductTBLId == ProductId);
+                    data.ProductPhotoTBL_VM = Mapper.Map<List<ProductPhotoTBL_VM>>(productPhotos.OrderByDescending(p => p.CreationDate));
                 }
 
                    var fromCountryId = unitOfWork.CountryTBLRepository.GetAllCustomized(
@@ -114,12 +114,12 @@ namespace AymanStore.PL.Controllers
 
                   var shippingCompanyCost_shippingCountriesToThisUser = unitOfWork.ShippingCompanyCostTBLRepository.GetAllCustomized(
                     filter: a => a.IsDeleted == false
-                    && a.ShippingCompanyTBL.CountryTBLId == fromCountryId, orderBy: q => q.OrderBy(p => p.Cost),
+                    && a.ShippingCompanyTBL.CountryTBLId == fromCountryId,
                     includes: new Expression<Func<ShippingCompanyCostTBL, object>>[]
                     {
                                                                             p => p.ShippingCompanyTBL,
                                                                             p => p.CountryTBLSendTo
-                    });
+                    }).OrderBy(p => p.Cost);
 
                     var Countries = new List<CountryTBL>();
                     foreach (var item in shippingCompanyCost_shippingCountriesToThisUser.OrderBy(a => a.CountryTBLSendTo.Name))
@@ -148,15 +148,15 @@ namespace AymanStore.PL.Controllers
                      }
 
                 var ProductRatingList = unitOfWork.ProductRatingTBLRepository.GetAllCustomized(
-                       filter: a => a.IsDeleted == false && a.ProductTBLId == Product.ID, orderBy: q => q.OrderByDescending(p => p.CreationDate),
+                       filter: a => a.IsDeleted == false && a.ProductTBLId == Product.ID,
                  includes: new Expression<Func<ProductRatingTBL, object>>[]
                  {
                                                         p => p.AppUserWhoRated,
                  }); ;
-                data.ProductRatingTBL_VM = Mapper.Map<List<ProductRatingTBL_VM>>(ProductRatingList);
+                data.ProductRatingTBL_VM = Mapper.Map<List<ProductRatingTBL_VM>>(ProductRatingList.OrderByDescending(p => p.CreationDate));
                 data.ProductRate = GetAverageRatingAsync(Product.ID);
                 data.ProductSpecificationTBL_VM = Mapper.Map<List<ProductSpecificationTBL_VM>>(unitOfWork.ProductSpecificationTBLRepository.GetAllCustomized(
-                             filter: a => a.IsDeleted == false && a.ProductTBLId == ProductId, orderBy: q => q.OrderByDescending(p => p.CreationDate)));
+                             filter: a => a.IsDeleted == false && a.ProductTBLId == ProductId).OrderByDescending(p => p.CreationDate));
             
             return View(data);
         }
@@ -189,7 +189,7 @@ namespace AymanStore.PL.Controllers
             if (CategoryId > 0)
             {
                 var Products = unitOfWork.ProductTBLRepository.GetAllCustomized(
-                    filter: a => a.IsDeleted == false && a.SubCategoryTBL.CategoryTBLId == CategoryId, orderBy: q => q.OrderByDescending(p => p.CreationDate),
+                    filter: a => a.IsDeleted == false && a.SubCategoryTBL.CategoryTBLId == CategoryId,
                     includes: new Expression<Func<ProductTBL, object>>[]
                     {
                                              p => p.SubCategoryTBL.CategoryTBL,
@@ -197,7 +197,7 @@ namespace AymanStore.PL.Controllers
                                              p => p.ManufacturerTBL
                     });
                 if (Products.Count() > 0) {
-                    return View(Mapper.Map<List<ProductTBL_VM>>(Products));
+                    return View(Mapper.Map<List<ProductTBL_VM>>(Products.OrderByDescending(p => p.CreationDate)));
                 }
             }
             ViewBag.CategoryName = unitOfWork.CategoryTBLRepository.GetAllCustomized(
@@ -210,7 +210,7 @@ namespace AymanStore.PL.Controllers
             if (SubCategoryId > 0)
             {
                 var Products = unitOfWork.ProductTBLRepository.GetAllCustomized(
-                    filter: a => a.IsDeleted == false && a.SubCategoryTBL.ID == SubCategoryId, orderBy: q => q.OrderByDescending(p => p.CreationDate),
+                    filter: a => a.IsDeleted == false && a.SubCategoryTBL.ID == SubCategoryId,
                     includes: new Expression<Func<ProductTBL, object>>[]
                     {
                                              p => p.SubCategoryTBL.CategoryTBL,
@@ -219,7 +219,7 @@ namespace AymanStore.PL.Controllers
                     });
                 if (Products.Count() > 0)
                 {
-                    return View(Mapper.Map<List<ProductTBL_VM>>(Products));
+                    return View(Mapper.Map<List<ProductTBL_VM>>(Products.OrderByDescending(p => p.CreationDate)));
                 }
             }
 

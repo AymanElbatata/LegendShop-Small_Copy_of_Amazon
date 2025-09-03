@@ -13,8 +13,7 @@ namespace AymanStore.BLL.Interfaces
         //int Delete(T obj);
 
         IEnumerable<T> GetAllCustomized(
-    Expression<Func<T, bool>> filter = null,
-    Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
-    params Expression<Func<T, object>>[] includes);
+        Expression<Func<T, bool>> filter = null,
+        params Expression<Func<T, object>>[] includes);
     }
 }

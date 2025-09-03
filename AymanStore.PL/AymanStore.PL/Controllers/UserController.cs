@@ -43,7 +43,7 @@ namespace AymanStore.PL.Controllers
             var data = new Orders_VM();
 
             var Orders = unitOfWork.OrderTBLRepository.GetAllCustomized(
-                    filter: a => a.IsDeleted == false && a.OrderByUserTBLId == userId && a.IsСurrentOrder == false, orderBy: q => q.OrderByDescending(p => p.CreationDate),
+                    filter: a => a.IsDeleted == false && a.OrderByUserTBLId == userId && a.IsСurrentOrder == false,
                     includes: new Expression<Func<OrderTBL, object>>[]
                     {
                                 p => p.OrderByUserTBL,
@@ -55,8 +55,8 @@ namespace AymanStore.PL.Controllers
                    });
             if (Orders != null)
             {
-                data.OrderTBL_VM = Mapper.Map<List<OrderTBL_VM>>(Orders);
-                data.OrderDetailTBL_VM = Mapper.Map<List<OrderDetailTBL_VM>>(GetCurrentUserOrderDetails());
+                data.OrderTBL_VM = Mapper.Map<List<OrderTBL_VM>>(Orders.OrderByDescending(p => p.CreationDate));
+                data.OrderDetailTBL_VM = Mapper.Map<List<OrderDetailTBL_VM>>(GetCurrentUserOrderDetails().OrderByDescending(p => p.CreationDate));
                 return View(data);
             }
             return View(data);
@@ -317,13 +317,13 @@ namespace AymanStore.PL.Controllers
             string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             return unitOfWork.OrderDetailTBLRepository.GetAllCustomized(
-                filter: a => a.IsDeleted == false && a.OrderTBL.OrderByUserTBL.Id == userId && a.OrderTBL.IsСurrentOrder == false, orderBy: q => q.OrderByDescending(p => p.CreationDate),
+                filter: a => a.IsDeleted == false && a.OrderTBL.OrderByUserTBL.Id == userId && a.OrderTBL.IsСurrentOrder == false,
                 includes: new Expression<Func<OrderDetailTBL, object>>[]
                 {
                                         p => p.OrderTBL,
                                         p => p.ProductTBL
 
-                }).ToList();
+                }).OrderByDescending(p => p.CreationDate).ToList();
         }
 
         private List<OrderDetailTBL> GetCurrentUserOrderDetails(int orderId)
@@ -331,13 +331,13 @@ namespace AymanStore.PL.Controllers
             string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             return unitOfWork.OrderDetailTBLRepository.GetAllCustomized(
-                filter: a => a.IsDeleted == false && a.OrderTBL.OrderByUserTBL.Id == userId && a.OrderTBL.IsСurrentOrder == true && a.OrderTBLId == orderId, orderBy: q => q.OrderByDescending(p => p.CreationDate),
+                filter: a => a.IsDeleted == false && a.OrderTBL.OrderByUserTBL.Id == userId && a.OrderTBL.IsСurrentOrder == true && a.OrderTBLId == orderId,
                 includes: new Expression<Func<OrderDetailTBL, object>>[]
                 {
                                         p => p.OrderTBL,
                                         p => p.ProductTBL,
 
-                }).ToList();
+                }).OrderByDescending(p => p.CreationDate).ToList();
         }
 
         private List<OrderDetailTBL> GetCompletedUserOrderDetails(int orderId)
@@ -345,13 +345,13 @@ namespace AymanStore.PL.Controllers
             string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             return unitOfWork.OrderDetailTBLRepository.GetAllCustomized(
-                filter: a => a.IsDeleted == false && a.OrderTBL.OrderByUserTBL.Id == userId && a.OrderTBLId == orderId, orderBy: q => q.OrderByDescending(p => p.CreationDate),
+                filter: a => a.IsDeleted == false && a.OrderTBL.OrderByUserTBL.Id == userId && a.OrderTBLId == orderId,
                 includes: new Expression<Func<OrderDetailTBL, object>>[]
                 {
                                         p => p.OrderTBL,
                                         p => p.ProductTBL,
 
-                }).ToList();
+                }).OrderByDescending(p => p.CreationDate).ToList();
         }
 
         private async Task AddNewOrderForCurrentUser()
@@ -371,8 +371,7 @@ namespace AymanStore.PL.Controllers
         {
             var ProductFrom = unitOfWork.ProductTBLRepository.GetById(productId).CountryTBLPlaceId;
             return unitOfWork.ShippingCompanyCostTBLRepository
-                 .GetAllCustomized(filter: a => a.IsDeleted == false && a.ShippingCompanyTBL.CountryTBLId == ProductFrom && a.CountryTBLSendToId == countryTo, orderBy: q => q.OrderBy(p => p.Cost)).FirstOrDefault();
-
+                 .GetAllCustomized(filter: a => a.IsDeleted == false && a.ShippingCompanyTBL.CountryTBLId == ProductFrom && a.CountryTBLSendToId == countryTo).FirstOrDefault();
         }
 
 
