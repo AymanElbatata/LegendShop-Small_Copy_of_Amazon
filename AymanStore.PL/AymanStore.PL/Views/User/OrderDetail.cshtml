@@ -51,10 +51,11 @@
             <strong>Shipping Address</strong>
         </div>
         <div class="card-body">
-            <p>@Model.OrderTBL_VM.OrderByUserTBL.FirstName, @Model.OrderTBL_VM.OrderByUserTBL.LastName</p>
-            <p>@Model.OrderTBL_VM.CountryTBL.Name</p>
-            <p>@Model.OrderTBL_VM.Phones</p>
-            <p>@Model.OrderTBL_VM.Address</p>
+            <p>Name: @Model.OrderTBL_VM.OrderByUserTBL.FirstName, @Model.OrderTBL_VM.OrderByUserTBL.LastName</p>
+            <p>Email: @Model.OrderTBL_VM.OrderByUserTBL.Email</p>
+            <p>Country: @Model.OrderTBL_VM.CountryTBL.Name</p>
+            <p>Phones: @Model.OrderTBL_VM.Phones</p>
+            <p>Address: @Model.OrderTBL_VM.Address</p>
         </div>
     </div>
 
