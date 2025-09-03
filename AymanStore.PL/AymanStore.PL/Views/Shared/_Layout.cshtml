@@ -16,12 +16,66 @@ filter: a => a.IsDeleted == false);
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Legend Shop</title>
+
+
+    <meta name="description" content="Legend shop - online store." />
+    <meta name="keywords" content="ecommerce, online store, asp.net core, shopping, buy online, legendstore" />
+    <meta name="author" content="Legend Shop" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph (Facebook & LinkedIn) -->
+    <meta property="og:title" content="Legend shop - Online Store" />
+    <meta property="og:description" content="Shop with us - Legend shop - online store." />
+    <meta property="og:image" content="http://legendshop.runasp.net/wwwroot/images/main/Logo.png" />
+    <meta property="og:url" content="http://legendshop.runasp.net/" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Legend Shop - Online Store" />
+    <meta name="twitter:description" content="Shop with us - Legend shop - online store." />
+    <meta name="twitter:image" content="~/Images/Main/Logo.png" />
+
+    <!-- Favicon & Manifest -->
+    <link rel="icon" type="image/x-icon" href="~/Images/Main/favicon.ico" asp-append-version="true" />
+    <link rel="apple-touch-icon" href="~/favicons/apple-touch-icon-180x180.png" />
+    <link rel="manifest" href="~/favicons/site.webmanifest" />
+
+
     <script type="importmap"></script>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/AymanStore.PL.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+
+    <!-- Scripts (head if needed, otherwise before </body>) -->
+    <script src="https://www.googletagmanager.com/gtag/js?id=G-W6NE3YGH08" async></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-W6NE3YGH08'); // Replace with your Google Analytics ID
+    </script>
+
+    <!-- Structured Data (Google Rich Results) -->
+    <script type="application/ld+json">
+        {
+          "@@context": "https://schema.org",
+          "@@type": "WebSite",
+          "name": "LegendShop",
+          "url": "http://legendshop.runasp.net/",
+          "potentialAction": {
+            "@@type": "SearchAction",
+            "target": "http://legendshop.runasp.net/search?query={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        }
+    </script>
+
+    @RenderSection("Styles", required: false)
+
 
 </head>
 <body>
@@ -184,7 +238,7 @@ filter: a => a.IsDeleted == false);
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2023 Legend Shop. All rights reserved. <a href="https://www.linkedin.com/in/ayman-elbatata/"></a>Ayman Elbatata</p>
+                <p>&copy; 2023 Legend Shop. All rights reserved.</p>
             </div>
         </div>
     </footer>
