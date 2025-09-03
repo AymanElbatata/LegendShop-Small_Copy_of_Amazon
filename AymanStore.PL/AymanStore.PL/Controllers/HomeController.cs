@@ -71,7 +71,7 @@ namespace AymanStore.PL.Controllers
             else if (!string.IsNullOrEmpty(MainSearchWord) && CategorySearchId == 0)
             {
                 var Product = unitOfWork.ProductTBLRepository.GetAllCustomized(
-                    filter: a => a.IsDeleted == false && (a.Name.Contains(MainSearchWord) || a.Description.Contains(MainSearchWord)), orderBy: q => q.OrderByDescending(p => p.CreationDate),
+                    filter: a => a.IsDeleted == false && (a.Name.Contains(MainSearchWord) || a.Description.Contains(MainSearchWord) || a.Barcode.Contains(MainSearchWord)), orderBy: q => q.OrderByDescending(p => p.CreationDate),
                     includes: new Expression<Func<ProductTBL, object>>[]
                     {
                                              p => p.SubCategoryTBL,
