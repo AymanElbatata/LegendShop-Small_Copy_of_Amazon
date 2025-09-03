@@ -111,6 +111,7 @@ namespace AymanStore.PL.Controllers
                       filter: a => a.IsDeleted == false && a.ID == Product.CountryTBLPlaceId).FirstOrDefault().ID;
 
                   var IncomingcountryName = HttpContext.Session.GetString("currentUserCountry");
+
                   var shippingCompanyCost_shippingCountriesToThisUser = unitOfWork.ShippingCompanyCostTBLRepository.GetAllCustomized(
                     filter: a => a.IsDeleted == false
                     && a.ShippingCompanyTBL.CountryTBLId == fromCountryId, orderBy: q => q.OrderBy(p => p.Cost),
@@ -128,18 +129,23 @@ namespace AymanStore.PL.Controllers
 
                     data.CountryTBL_VM = Mapper.Map<List<CountryTBL_VM>>(Countries);
 
-                  var countryName = unitOfWork.CountryTBLRepository.GetAllCustomized(
+                    if (IncomingcountryName == null)
+                    {
+                        string UserIdLogged = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                        if(!string.IsNullOrEmpty(UserIdLogged))
+                        IncomingcountryName = unitOfWork.UserManager.FindByIdAsync(UserIdLogged).Result.CountryTBL.Name;
+                    }
+                var countryName = unitOfWork.CountryTBLRepository.GetAllCustomized(
                       filter: a => a.IsDeleted == false && a.Name.Contains(IncomingcountryName)).Any();
 
-
-                  if (countryName) 
-                  { 
+                     if (countryName) 
+                     { 
 
                      var toCountryId = unitOfWork.CountryTBLRepository.GetAllCustomized(
                       filter: a => a.IsDeleted == false && a.Name.Contains(IncomingcountryName)).FirstOrDefault().ID;
                  
                      data.ShippingCompanyCostTBL_VM = Mapper.Map<ShippingCompanyCostTBL_VM>(shippingCompanyCost_shippingCountriesToThisUser.Where(a=>a.CountryTBLSendToId == toCountryId).FirstOrDefault());
-                 }
+                     }
 
                 var ProductRatingList = unitOfWork.ProductRatingTBLRepository.GetAllCustomized(
                        filter: a => a.IsDeleted == false && a.ProductTBLId == Product.ID, orderBy: q => q.OrderByDescending(p => p.CreationDate),
