@@ -307,10 +307,21 @@ footer {
 @media (max-width: 600px) {
 
     .header-search {
-        max-width: 80%; /* smaller width */
-        margin: 5px 10px; /* smaller margin */
-        font-size: 14px; /* optional: shrink text size */
+        max-width: 98%; /* don't force large width */
+        margin: 5px auto; /* center it with smaller margin */
+        font-size: 14px;
     }
+
+        .header-search input {
+            flex-grow: 0; /* stop it from stretching */
+            width: 80%; /* set a smaller fixed width */
+            font-size: 14px;
+            padding: 8px;
+        }
+
+        .header-search button {
+            padding: 8px 12px;
+        }
     .products-grid {
         grid-template-columns: 1fr;
     }
