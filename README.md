@@ -1,6 +1,6 @@
 LegendShop 🛒
 
-Live Demo : http://legendshop.runasp.net
+Live Demo : https://legendshop.runasp.net
 
 LegendShop is an ASP.NET Core MVC e-commerce web application inspired by Amazon.com but built with simplified features for demonstration, learning, and further development.
 This project is a foundation for anyone interested in exploring modern web development with ASP.NET Core, SQL Server, HTML5, CSS3, Bootstrap, and JavaScript.
