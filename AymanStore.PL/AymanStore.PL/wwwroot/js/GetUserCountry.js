@@ -2895,7 +2895,11 @@ else {
 /*document.getElementById("userCountryName").textContent = getState();*/
 
 function SaveCurrentUserCountry(countryName) {
-	saveUrl = window.location.origin + "/Home/SaveCurrentUserCountry";
+	let saveUrl = "";
+	if (window.location.origin == "https://localhost:7046")
+		 saveUrl = window.location.origin + "/Home/SaveCurrentUserCountry";
+	else
+		 saveUrl = window.location.origin + "/LegendStore/Home/SaveCurrentUserCountry";
 
 	//alert(saveUrl);
 	$.ajax({
