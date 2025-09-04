@@ -74,8 +74,5 @@ If you’re a company looking to extend this solution into a commercial-grade pl
 
 Developers and students are welcome to fork, learn, and improve upon the project.
 
-📜 License
-
-This project is released under the MIT License – free to use with attribution.
 
 ✨ LegendShop is more than just a demo — it’s a starting point for innovation.
