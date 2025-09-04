@@ -42,12 +42,8 @@ filter: a => a.IsDeleted == false);
     <meta name="twitter:description" content="Shop with us - Legend shop - online store." />
     <meta name="twitter:image" content="~/Images/Main/Logo.png" />
 
-    <!-- Favicon & Manifest -->
-@*     <link rel="icon" type="image/x-icon" href="~/favicon_io/favicon.ico" asp-append-version="true" />
-    <link rel="apple-touch-icon" href="~/favicon_io/apple-touch-icon-180x180.png" />
-    <link rel="manifest" href="~/favicon_io/site.webmanifest" />
- *@
-    <!-- Favicon -->
+
+    <!-- Favicon  & Manifest -->
     <link rel="icon" type="image/x-icon" href="~/favicon_io/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="~/favicon_io/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="~/favicon_io/favicon-32x32.png">
@@ -67,28 +63,7 @@ filter: a => a.IsDeleted == false);
 
 
 
-    <!-- Scripts (head if needed, otherwise before </body>) -->
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-W6NE3YGH08'); // Replace with your Google Analytics ID
-    </script>
 
-    <!-- Structured Data (Google Rich Results) -->
-    <script type="application/ld+json">
-        {
-          "@@context": "https://schema.org",
-          "@@type": "WebSite",
-          "name": "LegendShop",
-          "url": "https://legendshop.runasp.net/",
-          "potentialAction": {
-            "@@type": "SearchAction",
-            "target": "https://legendshop.runasp.net/search?query={search_term_string}",
-            "query-input": "required name=search_term_string"
-          }
-        }
-    </script>
 
     @RenderSection("Styles", required: false)
 
@@ -259,8 +234,29 @@ filter: a => a.IsDeleted == false);
         </div>
     </footer>
 
-@*     <script src="https://www.googletagmanager.com/gtag/js?id=G-W6NE3YGH08" async></script>
- *@    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Scripts (head if needed, otherwise before </body>) -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-W6NE3YGH08'); // Replace with your Google Analytics ID
+    </script>
+
+    <!-- Structured Data (Google Rich Results) -->
+    <script type="application/ld+json">
+        {
+          "@@context": "https://schema.org",
+          "@@type": "WebSite",
+          "name": "LegendShop",
+          "url": "https://legendshop.runasp.net/",
+          "potentialAction": {
+            "@@type": "SearchAction",
+            "target": "https://legendshop.runasp.net/search?query={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        }
+    </script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/GetUserCountry.js" asp-append-version="true"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)

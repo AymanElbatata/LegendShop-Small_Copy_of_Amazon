@@ -305,6 +305,12 @@ footer {
 }
 
 @media (max-width: 600px) {
+
+    .header-search {
+        max-width: 80%; /* smaller width */
+        margin: 5px 10px; /* smaller margin */
+        font-size: 14px; /* optional: shrink text size */
+    }
     .products-grid {
         grid-template-columns: 1fr;
     }
