@@ -76,3 +76,8 @@ Developers and students are welcome to fork, learn, and improve upon the project
 
 
 ✨ LegendShop is more than just a demo — it’s a starting point for innovation.
+
+------
+I can make any update according to your needs.
+Buy This Project: https://aymanelbatata.gumroad.com/l/ECommerce
+Or via this link with commercial invoice and taxes: https://checkouts.kashier.io/en/prepaymenpages?ppLink=PP-927176201,live 
