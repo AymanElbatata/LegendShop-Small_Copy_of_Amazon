@@ -213,7 +213,7 @@ namespace AymanStore.PL.Controllers
                         ItemName = item.ProductTBL.Name,
                         Barcode = item.ProductTBL.Barcode,
                         Quantity = item.Quantity,
-                        Price = item.Price * item.Quantity,
+                        Price = item.Price,
                         Shipping = item.Quantity * item.ShippingCost
                     });
                 }

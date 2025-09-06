@@ -147,7 +147,7 @@
 
                         <!-- Price -->
                         <div class="col-3 col-md-3 text-end">
-                            <span class="fw-bold">$@(item.Price * item.Quantity)</span>
+                            <span class="fw-bold">$@(item.Price* item.Quantity) + $@(item.Quantity* item.ShippingCost)</span>
                         </div>
                     </div>
                 }
