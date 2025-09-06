@@ -76,10 +76,10 @@
             <div class="order-card">
                 <div class="order-header">
                     <div>
-                        <h5 class="mb-1">Order #@order.HashCode</h5>
+                        <h5 class="mb-1">Order: @order.HashCode</h5>
                         <p class="mb-1">Total $@order.TotalAmount</p>
                         <div class="text-muted small">
-                            Placed on @order.DateOfSubmit?.ToString("dd/MM/yyyy"))
+                            Placed on @order.DateOfSubmit?.ToString("dd MMMM yyyy"))
                         </div>
                         <div class="order-status mt-1">
                             Status: <span class="badge bg-success">@order.ShippingStatusTBL.Name</span>

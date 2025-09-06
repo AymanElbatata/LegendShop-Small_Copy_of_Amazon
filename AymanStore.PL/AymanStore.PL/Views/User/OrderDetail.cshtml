@@ -36,7 +36,8 @@
         </div>
         <div class="card-body">
             <p><strong>Order ID:</strong> @Model.OrderTBL_VM.HashCode</p>
-            <p><strong>Order Date:</strong> @(Model.OrderTBL_VM.DateOfSubmit?.ToString("dd/MM/yyyy"))</p>
+            <p><strong>Order Date:</strong> @(Model.OrderTBL_VM.DateOfSubmit?.ToString("dd MMMM yyyy"))</p>
+            <p><strong>Service:</strong> @Model.OrderTBL_VM.ShippingServiceTBL.Name/@Model.OrderTBL_VM.ShippingServiceTBL.Description</p>
             <p>
                 <strong>Status:</strong>
                 <span class="badge bg-warning text-dark">@Model.OrderTBL_VM.ShippingStatusTBL.Name</span>
